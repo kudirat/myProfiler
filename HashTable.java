@@ -138,7 +138,7 @@
 	            }
 	        }
 	        
-	        System.out.print(this.getLoadFactor());
+	        //System.out.print(this.getLoadFactor());
 	        
 	        if(this.getLoadFactorThreshold() <= this.getLoadFactor()) {
 		        rehash();
