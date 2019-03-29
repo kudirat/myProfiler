@@ -6,14 +6,22 @@ Java Flight Recorder and Java Mission Control to justify your conclusions..
 1) What can you tell about the performance of your hash table implementation compared to Java's tree map? 
 Explain why (or when) your hash table is better or worse than Java's Tree Map.
 
+The performance of my hash table is overall less efficient compared to Java's tree map. Currently it seems as though the hashTable is not too demanding of the CPU and Heap usage. But if my hashTable could fully insert and retrieve 1000 key value pairings and more, then it would definitely be more demanding than the TreeMap and its methods. I think that this would be the case because of the fact that the reHash()method is a very high percentage hot method.
 
 2) What did you observe in java mission control to come to the conclusion above?
 
+I went through General, Memory, and Code to analyze the performance of the most CPU and Heap demanding methods. My rehash method was actually at a higher percentage in the Hot Methods compared to other methods.
+
 
 3) SCREENSHOT_001.PNG NOTES: Briefly describe what this image 001 shows
+ Currently it seems as though the hash table and it's methods are not usi
+ng too much of the Heap Usage. It appears that my hash table used up to 32 Megabitesof memory on the heap but nothing was really being recording on the total CPU usage. It seemed like that on the heap, my hash table started off by using 32 megabites at a constant rate before plumetting near 0 bytes. Perhaps this was an abrupt halt in the program.
+
 
 
 4) SCREENSHOT_002.PNG NOTES: Briefly describe what this image 002 shows
+
+The hot methods aspect of JMC showed me that my hash table's rehash function used up a lot of the system's memory compared to other methods. Normally inserting into the hash table without rehasing does not demand much from the system. It also shows that insert in the main method of MyProfile is taking up quite the percentage from the system as well. However when inserting an object into a HashTable does not require much from CPU usage and the heap usage.  
 
 
 5) Describe other screenshots if you include them in your submission.
