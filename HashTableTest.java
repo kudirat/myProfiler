@@ -155,9 +155,9 @@ public class HashTableTest {
 			throws NoSuchElementException, IllegalNullKeyException, DuplicateKeyException, KeyNotFoundException {
 		// try {
 		// Create new Hashtable and insert new key into HashTable
-		HashTableADT htIntegerKey = new HashTable<Integer, String>();
-		int initialCapacity = 5;
-		Double loadFactor = 0.0;
+		HashTableADT htIntegerKey = new HashTable<Integer, String>(5, 0.75);
+//		int initialCapacity = 5;
+//		Double loadFactor = 0.0;
 		int numKeys = 0;
 
 		htIntegerKey.insert(1, "A");
@@ -238,8 +238,8 @@ public class HashTableTest {
 		// try {
 		// Create new Hashtable and insert new key into HashTable
 		HashTableADT htIntegerKey = new HashTable<Integer, String>();
-		int initialCapacity = 5;
-		Double loadFactor = 0.0;
+//		int initialCapacity = 5;
+//		Double loadFactor = 0.0;
 		int numKeys = 0;
 
 		htIntegerKey.insert(1, "A");
@@ -326,5 +326,33 @@ public class HashTableTest {
 			fail("KeyNotFoundExceptionShouldHaveBeenThrown");
 
 	}
+	
+	@Test
+	public void test014_insert_many()
+			throws NoSuchElementException, IllegalNullKeyException, DuplicateKeyException, KeyNotFoundException {
+		// try {
+		// Create new Hashtable and insert new key into HashTable
+		HashTableADT htIntegerKey = new HashTable<Integer, String>(5, 0.75);
+//
+//		htIntegerKey.insert(1, "A");
+//
+//		htIntegerKey.insert(2, "B");
+//
+//		htIntegerKey.insert(3, "C");
+		
+		for(int i = 0; i < 100; i++) {
+			System.out.print(i);
+			htIntegerKey.insert(i, "i");
+			
+		}
+
+		//double loadFactor = htIntegerKey.getLoadFactor() ;
+
+		if (htIntegerKey.numKeys() != 100)
+			fail("KeyNotFoundExceptionShouldHaveBeenThrown");
+
+	}
+
+
 
 }

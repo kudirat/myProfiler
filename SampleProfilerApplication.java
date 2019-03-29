@@ -11,7 +11,7 @@ public class SampleProfilerApplication {
             System.out.println(String.format("inserted %d elements into the hash set", numElements));
         } catch (Exception e) {
             System.out.println("Usage: java SampleApplication <num_elements_as_positive_integer>");
-             System.exit(1);
+             System.exit(1); 	
          }
     }
 }

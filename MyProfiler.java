@@ -27,21 +27,22 @@ public class MyProfiler<K extends Comparable<K>, V> {
         // Instantiate your HashTable and Java's TreeMap
     	
     	//calling the HashTable() and the TreeMap() method should create an instance of it 
-    	hashtable = new HashTable();
-    	treemap = new TreeMap();
+    	hashtable = new HashTable<K, V>();
+    	treemap = new TreeMap<K, V>();
     	
     
     }
     
     public void insert(K key, V value) {
+    
     	
     	try {
-			hashtable.insert(key, value);
+			hashtable.insert(key,value);
 		} catch (IllegalNullKeyException e) {
-			//catch exception if key is null
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (DuplicateKeyException e) {
-			//catch exception if key is already in hashtable
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
     	
@@ -73,7 +74,7 @@ public class MyProfiler<K extends Comparable<K>, V> {
     }
     
     public static void main(String[] args) {
-       // try {
+        //try {
             int numElements = Integer.parseInt(args[0]);
 
             MyProfiler<Integer, Integer> myProfile = new MyProfiler<Integer, Integer>();
@@ -82,24 +83,24 @@ public class MyProfiler<K extends Comparable<K>, V> {
             int j = 0;
             
             //repeatedly inserting into myProfile as long as i is less than or equal to the numElements
-            while (i <= numElements) {
-            //	myProfile.insert(key, value);
+            while (i < numElements) {
+            	myProfile.insert(i, i);
             	i++;
             }
             
-            for (int a = 0; a <= numElements; a++) {
-            	//myProfile.insert(a);
-            }
+//            for (int a = 0; a <= numElements; a++) {
+//            	//myProfile.insert(a);
+//            }
           //repeatedly getting from myProfile as long as i is less than or equal to the numElements
             
-            while (j <= numElements) {
+            while (j < numElements) {
             	//myProfile.get(key);
             	j++;
             }
             
-            for (int g = 0; g <= numElements; g++) {
-            	//myProfile.get(g);
-            }
+//            for (int g = 0; g <= numElements; g++) {
+//            	//myProfile.get(g);
+//            }
             // TODO: complete the main method. 
             // Create a profile object. 
             // For example, Profile<Integer, Integer> profile = new Profile<Integer, Integer>();
@@ -110,7 +111,7 @@ public class MyProfiler<K extends Comparable<K>, V> {
         
             String msg = String.format("Inserted and retreived %d (key,value) pairs", numElements);
             System.out.println(msg);
-     //   }
+//        }
 //        catch (Exception e) {
 //            System.out.println("Usage: java MyProfiler <number_of_elements>");
 //            System.exit(1);
